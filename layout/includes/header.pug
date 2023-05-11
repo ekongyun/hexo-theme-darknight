@@ -14,6 +14,22 @@ mixin expand_list(list)
 
 header.closed
   nav
+    ol.navContent
+      each url, label in theme.menu
+        - var match = null
+        - var i18_label = 'menu.'+label+'.name'
+        if typeof(url) === "string" && url.match(config.archive_dir)
+          - match = config.category_dir + ',' + config.tag_dir
+        li.navItem(matchdata=match)
+          if typeof(url) === "object"
+            div.navBlock
+              span.navItemTitle= __(i18_label)
+              ol.navItemList
+                +expand_list(url)
+          else
+            a.navBlock(href= url_for(url))
+              span.navItemTitle= __(i18_label)
+  search
     .navBtn(class="hide")
       i.navBtnIcon
         span.navBtnIconBar
@@ -28,17 +44,3 @@ header.closed
       .navItem#search-holder
       .search-popup
         #search-result
-    ol.navContent
-      each url, label in theme.menu
-        - var match = null
-        if typeof(url) === "string" && url.match(config.archive_dir)
-          - match = config.category_dir + ',' + config.tag_dir
-        li.navItem(matchdata=match)
-          if typeof(url) === "object"
-            div.navBlock
-              span.navItemTitle= label
-              ol.navItemList
-                +expand_list(url)
-          else
-            a.navBlock(href= url_for(url))
-              span.navItemTitle= label

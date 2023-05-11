@@ -2,7 +2,10 @@
 | [English](README.en.md)
 | [日本語](README.ja.md)
 
-# hexo-theme-arknights
+# hexo-theme-darknight
+
+## 说明
+本工程系[hexo-theme-arknights](https://github.com/Yue-plus/hexo-theme-arknights.git)分支工程, 因为样式等变化较大，解决了原工程中菜单不显示中文等的问题，以及添加了文档密码保护
 
 ## 预览
 

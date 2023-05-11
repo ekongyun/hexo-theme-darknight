@@ -2,19 +2,22 @@ header
   pointer-events none
   top 0
   z-index 15
-  height 100%
+  width 100%
   font-family BenderLight
   display inline
   position sticky
+  display grid
+  grid-template-columns 1fr 300px
+  padding 20px 0
 
 nav
   position relative
-  height 100%
   white-space nowrap
   scrollbar-width none
   overflow hidden
+  flex-direction row
   display flex
-  flex-direction column
+  min-width 500px
   justify-content center
   &::-webkit-scrollbar
     display none
@@ -23,6 +26,11 @@ nav
   li
     display block
 
+search
+  float right
+  padding 10px 0
+  width 300px
+  
 .navBlock
   transition unset
   position relative
@@ -30,12 +38,13 @@ nav
   line-height 40px
   padding 0 12px
   display inline-block
-  List-sum = 0
-  for i in hexo-config("menu")
-    List-sum += 3
-  if hexo-config("search") && hexo-config("search.enable")
-    List-sum += 2
-  padding (30em/List-sum) 0
+  // List-sum = 0
+  // for i in hexo-config("menu")
+  //   List-sum += 3
+  // if hexo-config("search") && hexo-config("search.enable")
+  //   List-sum += 2
+  // padding (30em/List-sum) 0
+  padding 10px 0
   width 100%
   &:active
     background unset
@@ -154,41 +163,55 @@ extendList()
 
 @media ( max-width 1023px )
   header
-    width max(428px ,100% - 200px)
-    max-width 100%
-    position fixed
+    display block
+//     // width max(428px ,100%)
+//     // max-width 100%
   nav
-    max-width 428px
-    height max-content
-    min-height 100vh
-    &::before
-      content ""
-      height 100%
-      width 100%
-      position absolute
-      top 0
-      left 0
-      background-color var(--theme-bg-trans0)
-      transform translateX(-100%)
-      transition transform .6s
-      pointer-events all
-  .navBtn
-    left 1em
-  .navContent
-    overflow-y auto
-    transform translateX(-100%)
     width 100%
-    transition transform 0.6s
+//     // max-width 100vh
+//     height max-content
+//     &::before
+//       content ""
+//       width 100%
+//       position absolute
+//       top 0
+//       left 0
+//       background-color var(--theme-bg-trans0)
+//       transform translateX(-100%)
+//       transition transform .6s
+//       pointer-events all
+   search
+     display none
+     width 0
+//   .navBtn
+//     left 1em
+    .navContent
+       display block
+       // width 100%
+//     // overflow-y auto
+//     // transform translateX(-100%)
+//     // transition transform 0.6s
+//     overflow visible
+//     margin unset
+//     position relative
+//     padding 0
+//     pointer-events all
   .navItem
-    padding .1em 4em
+    padding-right 1.2em
+    display inline-block
+    width 120px
   .navBlock
     &:hover
       background-color unset
+      font-weight bold
+      padding-left unset
     box-sizing border-box
     align-items flex-end
     padding unset
-    height 100%
+    padding-left 5px
+    width 100%
   .navItemTitle
+    
     color var(--theme-text-light)
     padding-bottom 5px
     border-bottom 1px solid var(--theme-unimportant)
@@ -217,7 +240,7 @@ extendList()
 
 @media ( min-width 1024px )
   header
-    width 180px
+    width 100vh
   .navItem
     width 120px
   .navBtn
@@ -253,10 +276,10 @@ extendList()
 
 @media ( min-width 1440px )
   header
-    width 240px
+    width 100vh
   .navItem
     width 150px
 
 @media ( min-width 1920px )
   header
-    width 310px
+    width 100vh

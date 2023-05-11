@@ -418,7 +418,8 @@ class Index {
         };
         document.addEventListener('pjax:success', this.setHTML);
         this.setHTML();
-        getElement('main').addEventListener('scroll', () => {
+        // getElement('main')
+        window.addEventListener('scroll', () => {
             if (this.tocLink.length) {
                 this.modifyIndex();
             }

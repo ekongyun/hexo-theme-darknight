@@ -28,10 +28,18 @@ btn:
   colorMode: 切换主题
 
 menu:
+  home: 
+    name: 首页
+    plural: 首页
   archive:
     name: 文章
     plural: 文章
-  navigation: 导航
+  navigation: 
+    name: 导航
+    plural: 导航
+  about:
+    name: 关于
+    plural: 关于
   tag:
     name: 标签
     plural: 标签
